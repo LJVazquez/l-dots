@@ -1,5 +1,18 @@
 # L-dots powered by GoatVIM 📝 
 
+[            /|_/|                      ]
+[           / o o\                      ]
+[          (   "   )                    ]
+[           \~(*)~/                     ]
+[            // \\                      ]
+[           ((   ))                     ]
+[           GOATVIM 🐐                  ]
+
+## Instalación
+- ``git clone https://github.com/LJVazquez/l-dots.git ~/l-dots``
+- ``chmod +x ~/l-dots/install.sh``
+- ``cd ~/l-dots && ./install.sh``
+
 ## 🌐 Gestores de Entorno y Frameworks
 
 * **Homebrew / Linuxbrew**: El motor principal para la instalación y actualización de paquetes en el sistema.
