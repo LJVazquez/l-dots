@@ -1,12 +1,12 @@
 # L-dots powered by GoatVIM 📝 
 
-[            /|_/|                      ]
-[           / o o\                      ]
-[          (   "   )                    ]
-[           \~(*)~/                     ]
-[            // \\                      ]
-[           ((   ))                     ]
-[           GOATVIM 🐐                  ]
+- [            /|_/|                      ]
+- [           / o o\                      ]
+- [          (   "   )                    ]
+- [           \~(*)~/                     ]
+- [            // \\                      ]
+- [           ((   ))                     ]
+- [           GOATVIM 🐐                  ]
 
 ## Instalación
 - ``git clone https://github.com/LJVazquez/l-dots.git ~/l-dots``
