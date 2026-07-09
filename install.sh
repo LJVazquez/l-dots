@@ -88,6 +88,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# 5b. Instalar Powerlevel10k
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
+    echo "🎨 Instalando Powerlevel10k..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+fi
+
 # 6. Aplicar Enlaces Simbólicos con GNU Stow
 echo "🔗 Aplicando configuraciones con GNU Stow..."
 cd "$HOME/l-dots"
