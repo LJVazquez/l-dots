@@ -17,6 +17,7 @@ brew "gcc"
 brew "maven"
 brew "nvm"
 brew "tree-sitter-cli"
+brew "lazygit"
 
 # Herramientas CLI para Neovim 
 brew "ripgrep"
