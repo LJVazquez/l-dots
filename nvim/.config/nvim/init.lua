@@ -238,3 +238,5 @@ vim.keymap.set('n', '<leader>6', '<Cmd>BufferLineGoToBuffer 6<CR>')
 vim.keymap.set('n', '<leader>x', '<Cmd>bdelete<CR>', {
 	desc = 'Close current buffer',
 })
+
+vim.keymap.set('n', '<leader>r', '<Cmd>checktime<CR>', { desc = 'Reload buffer from disk' })
