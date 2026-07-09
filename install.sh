@@ -34,15 +34,39 @@ fi
 
 # 3. Instalar paquetes desde el Brewfile
 echo "📦 Instalando paquetes desde el Brewfile..."
+brew trust anomalyco/tap
 brew bundle --file="$HOME/l-dots/Brewfile"
 
-# 4. Instalar FiraMono Nerd Font (Requerida por tu Alacritty y Neovim)
-echo "🔤 Configurando Fuentes (FiraMono Nerd Font Mono)..."
+# 4. Instalar Kitty y FiraMono Nerd Font (Requerida por tu Kitty y Neovim)
+echo "🔤 Configurando Kitty y Fuentes (FiraMono Nerd Font Mono)..."
 if [ "$OS" == "Darwin" ]; then
     # Usar el cask nativo de macOS mediante Homebrew
+    brew install --cask kitty || echo "Kitty ya podría estar instalado." 
     brew install --cask font-fira-mono-nerd-font || echo "La fuente ya podría estar instalada."
 else
-    # Descarga manual limpia en Linux
+  PACKAGES_TO_INSTALL=()
+
+    if ! command -v kitty &> /dev/null; then
+        PACKAGES_TO_INSTALL+=("kitty")
+    fi
+
+    if ! command -v zsh &> /dev/null; then
+        PACKAGES_TO_INSTALL+=("zsh")
+    fi
+
+    if [ ${#PACKAGES_TO_INSTALL[@]} -ne 0 ]; then
+        echo "📥 Instalando paquetes del sistema: ${PACKAGES_TO_INSTALL[*]}..."
+        if command -v apt-get &> /dev/null; then
+            sudo apt-get update && sudo apt-get install -y "${PACKAGES_TO_INSTALL[@]}"
+        elif command -v dnf &> /dev/null; then
+            sudo dnf install -y "${PACKAGES_TO_INSTALL[@]}"
+        else
+            echo "⚠️ No se detectó un gestor de paquetes conocido (apt/dnf). Por favor, instala manualmente: ${PACKAGES_TO_INSTALL[*]}"
+        fi
+    else
+        echo "✅ Kitty y Zsh ya están instalados de forma nativa."
+    fi
+
     FONT_DIR="$HOME/.local/share/fonts"
     mkdir -p "$FONT_DIR"
     if [ ! -f "$FONT_DIR/FiraMonoNerdFontMono-Regular.otf" ]; then
@@ -52,6 +76,8 @@ else
         curl -fLo "$FONT_DIR/FiraMonoNerdFontMono-Bold.otf" \
             "https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraMono/Bold/FiraMonoNerdFontMono-Bold.otf"
         fc-cache -f -v
+
+	fc-cache -f "$FONT_DIR" || true
     fi
 fi
 
@@ -71,11 +97,11 @@ rm -f "$HOME/.zshrc"
 rm -f "$HOME/.tmux.conf"
 
 # Asegurar que existan los directorios base en el target de Stow
-mkdir -p "$HOME/.config/alacritty"
+mkdir -p "$HOME/.config/kitty"
 mkdir -p "$HOME/.config/nvim"
 
 # Ejecutar Stow por cada módulo
-stow alacritty
+stow kitty
 stow nvim
 stow tmux
 stow zsh
