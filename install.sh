@@ -112,5 +112,13 @@ stow nvim
 stow tmux
 stow zsh
 
+# 7. Instalar vtsls (TypeScript Language Server) vía npm
+if command -v npm &> /dev/null; then
+    echo "📦 Instalando vtsls (TypeScript Language Server)..."
+    npm install -g @vtsls/language-server
+else
+    echo "⚠️ npm no encontrado. Instala Node.js vía nvm (brew install nvm) y luego ejecuta: npm install -g @vtsls/language-server"
+fi
+
 echo "✨ ¡Flujo de instalación completado con éxito!"
 echo "🔄 Por favor, reinicia tu terminal o ejecuta: source ~/.zshrc"

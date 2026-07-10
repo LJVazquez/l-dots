@@ -197,9 +197,13 @@ vim.lsp.config('lua_ls', {
 	settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
 })
 
-vim.lsp.config('ts_ls', {
+vim.lsp.config('vtsls', {
 	capabilities = capabilities,
-	settings = { typescript = { preferences = { importModuleSpecifierPreference = 'relative' } } },
+	cmd = 	{ "vtsls", "--stdio" },
+	settings = {
+		typescript = { preferences = { importModuleSpecifierPreference = 'relative' } },
+		javascript = { preferences = { importModuleSpecifierPreference = 'relative' } }
+	},
 })
 
 vim.lsp.config("jdtls", {
@@ -210,7 +214,7 @@ vim.lsp.config("jdtls", {
 vim.lsp.enable({
 	'lua_ls',
 	'jdtls',
-	'ts_ls',
+	'vtsls',
 	'eslint',
 	'marksman',
 	'yamlls',

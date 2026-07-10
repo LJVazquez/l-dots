@@ -51,7 +51,7 @@
 
 * **Lua Language Server (`lua_ls`)**: Proporciona diagnóstico, autocompletado y navegación para scripts en Lua.
 * **JDTLS (`jdtls`)**: Servidor de soporte avanzado específico para el ecosistema Java.
-* **TypeScript Language Server (`ts_ls`)**: Habilita la asistencia inteligente de código para JavaScript y TypeScript.
+* **TypeScript Language Server (`vtsls`)**: Habilita la asistencia inteligente de código para JavaScript y TypeScript.
 * **ESLint (`eslint`)**: Motor encargado de ejecutar las reglas de formateo y detección de errores estáticos en la suite web.
 * **Marksman (`marksman`)**: Servidor especializado en brindar asistencia contextual para archivos Markdown.
 * **YAML Language Server (`yamlls`)**: Validador y autocompletador para estructuración de datos en formato YAML.

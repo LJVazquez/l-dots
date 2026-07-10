@@ -33,4 +33,4 @@ brew "jdtls"                 # Para jdtls
 brew "marksman"              # Para marksman
 brew "yaml-language-server"  # Para yamlls
 
-# NOTA: ts_ls y eslint se instalan idealmente vía npm globalmente 
+# NOTA: vtsls y eslint se instalan idealmente vía npm globalmente 
